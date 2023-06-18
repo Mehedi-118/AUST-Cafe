@@ -44,11 +44,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav navbar-right">
-					<li><a href="index.html"> Home</a></li>
-					<li><a href="Restaurent.html">Restaurent</a></li>
-					<li><a href="Menu.html">Menu</a></li>	
-					<li><a href="join.html">Join Our Team </a></li>
-					<li><a href="location.html">Location</a></li>
+					<li><a href="index.php"> Home</a></li>
+					<li><a href="Restaurent.php">Restaurent</a></li>
+					<li><a href="Menu.php">Menu</a></li>	
+					<li><a href="join.php">Join Our Team </a></li>
+					<li><a href="location.php">Location</a></li>
 						 
 				  </ul>
 				</div><!-- /.navbar-collapse -->

@@ -44,7 +44,6 @@
 					}
 					if($flag==0)
 					{
-						echo "insid11";
 						$stmt = "INSERT INTO `user`(`Name`, `Email`, `Password`) VALUES ('$firstname','$email','$password')";
 						if (mysqli_query($mysqli, $stmt))
                         {
@@ -69,14 +68,15 @@
 			
 			
 		}
-		// Close connection
 		$mysqli->close();
 	}
 	?>
     <script> var message = "<?php $message; ?>";
     if(message!="")
+	{
 
         alert(message);
+	}
 </script>
 </body>
 </html>
