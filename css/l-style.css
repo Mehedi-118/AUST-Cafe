@@ -6,10 +6,6 @@ body{
 	background: url(../images/p7.png)no-repeat;
 	background-size: cover;
 }
-.container{
-	width: 1170px;
-	margin: 0 auto;
-}
 
 .login-form{
 	width: 350px;
@@ -17,20 +13,7 @@ body{
 	background:black;
 	padding: 20px;
 }
-form{
-	width: 300px;
-	margin: 0 auto;
-}
-input{
-	width: 95%;
-	margin-bottom: 15px;
-	font-family: 'Roboto', sans-serif;
-	height: 30px;
-	font-size: 16px;
-	padding: 2px 10px;
-	border: none;
-	border-bottom: 1px solid #333;
-}
+
 .lg-btn{
 	width: 100px;
 	background: green;
@@ -41,7 +24,7 @@ input{
 	margin: 0 auto;
 }
 
-}
+
 .login-form p{
 	text-align: center;
 	font-size: 12px;

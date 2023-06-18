@@ -2,111 +2,92 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Sign Up</title>
 		<link rel="stylesheet" type="text/css" href="css/rstyle.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
 		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		
+		<title>Sign Up</title>
 
+		<style>
+		
+			.card {
+				margin-top:20%;
+				max-width: 500px;
+				padding: 20px;
+				border-radius: 20px;
+				border:1px solid gray;
+				background: #F7FFE5;
+			    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+		}
+		</style>
 
 	</head>
 	<body>
 
+	
+	<div class="row">
+		<div class="col-md-6 mx-auto">
+		<div class="card mx-auto">
+        <h2 class="mb-4">Registration Form</h2>
+		<form  method="POST" action="signup.php">
 
-		<?php
-$mysqli = mysqli_connect("localhost","root","","food");
-
-	if(isset($_POST['submit']))
-	{
-		$firstname = $_POST['firstname'];
-		
-		
-		$email = $_POST['email'];
-		
-		
-		$password = $_POST['password'];
-		
-		
-		$number = $_POST['number'];
-			
-		$zip = $_POST['zip'];
-		
-		
-		$gender = $_POST['Gender'];
-
-       $secondname = $_POST['secondname'];
-       
-
-       $conemail = $_POST['conemail'];
-       
-
-       $conpassword = $_POST['conpassword'];
-
-       $address = $_POST['address'];
-
-
-		
-		//$mysqli->query("ALTER TABLE `food` AUTO_INCREMENT=1");
-		
-		//if($password==$conpassword)
-		/*
-			$result=$mysqli_query("INSERT INTO `rest`(`firstname`, `email`, `password`, `number`, `zip`, `secondname`, `conemail`, `conpassword`, `gender`, `address`) VALUES ('$firstname','$email','$password','$number','$zip','$secondname','$conemail','$conpassword','$gender','$address')");
-*/
-		
-}
-		?>
-		
-
-
-
-	<div class="title"><center><h1> Sign Up Form</h1></center></div><br>
-	<img src="images/r8.png" alt="logo" class="logo">
-
-		<div class="container">
-
-			<div class="signup-form">
-				
-				<form action="" method="post">
-				<div class ="form-left">
-					<input type="text" name="firstname" placeholder="First Name:">
-					<input type="email" name="email" placeholder="Email Id:">
-					<input type="password" name="password" placeholder="Password:">
-					<input type="number" name="number" placeholder="Phone Number:">
-					<input type="text" name="zip" placeholder="Zip:">
-
-				
-			       <div class="gender">
-			        <input type="radio" name="Gender" value="Male" >Male   
-					<input type="radio" name="Gender" value="Female" >Female   
-					<input type="radio" name="Gender" value="other" >Other   
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="name">Name</label>
 					</div>
-
-
-					
-
-
+					<div class="col-md-9">
+						<input type ="text" name="Name" placeholder="Name" required>
+					</div>
+	
 				</div>
-				<div class="form-right">
-				<input type="text" name="secondname" placeholder="Second Name:">
-				<input type="email" name="conemail" placeholder="Confirm Email Id:">
-				<input type="password" name="conpassword" placeholder="Confirm Password:">
-				<input type="text" name="address" placeholder="Address:">
-			
+				<div class="row">
+					<div class="col-md-3">
+						<label for="name">Email</label>
+					</div>
+					<div class="col-md-9">
+						<input type ="text" name="Email" placeholder="Email" required>
+					</div>
+	
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<label for="name">Password</label>
+					</div>
+					<div class="col-md-9">
+						<input type ="text" name="Password" placeholder="Password"required>
+					</div>
+	
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<label for="name">Confirm Password</label>
+					</div>
+					<div class="col-md-9">
+						<input type ="text" name="ConfirmPassword" placeholder="Confirm Password"required>
+					</div>
+	
+				</div>
+				<div class="row ">
+					<div class="col-md-3 mx-auto">
+	
+						<input type="submit" value="Sign Up" class="btn btn-primary  mx-auto"	>
+					</div>
+				</div>
+		
 				
-				
-
-			  <input type="submit" name="submit" class="submit-btn">  Submit </a>
-				</div>
-				</form>
-
-				</div>
-
-			
-			
+			</div>
 
 
-
-
+		</form>
+    </div>
 		</div>
+	</div>
+	
+	</body>
 		
 </html>
