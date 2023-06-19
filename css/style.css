@@ -1,7 +1,7 @@
 /*Global CSS */
 .list-inline{
 	
-	margin-top:-7px;	
+	margin-top:-8px;	
 }
 
 body {
@@ -17,7 +17,7 @@ body {
 
 /*Header Section Start*/
 .contact-info{
-	margin-top: 3%;
+	margin-top: 13%;
 	text-align: right;
 
 }
@@ -27,7 +27,7 @@ body {
 	margin-right: 3%;
 }
 .login-btn{
-	background: #2abdb7;
+	background: #83eb9b;
 	color: white;
 	border:  #2abdb7;
 	border-radius: 3px;

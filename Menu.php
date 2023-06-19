@@ -13,107 +13,118 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 <body>
-	<section class="header">
-		  <nav class="navbar navbar-default">
-			  <div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-				  <a class="navbar-brand" href="#"><img src = "images/logo1.png" class="logo"></a>	
-				</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				  <ul class="nav navbar-nav navbar-right">
-					<li><a href="index.php"> Home</a></li>
-					<li><a href="Restaurent.php">Restaurent</a></li>
-					<li><a href="Menu.php">Menu</a></li>	
-					<li><a href="join.php">Join Our Team </a></li>
-					<li><a href="location.php">Location</a></li>
-						 
-				  </ul>
-				</div><!-- /.navbar-collapse -->
-			  </div><!-- /.container-fluid -->
-			</nav>
-	 </section >
 
-	 <section class="pricing-table">
+
+
+	<?php include "./header.php" ?>
+	<section class="pricing-table">
 			<div class="container">
 				<div class="row">
 					<h1 class="text-c"><span class="r-heading">Here our's Combo Pacages </span><span class="r-heading1">You Can try it</span> </h1>
+					<?php 
+						if(isset($_POST['combo1'])) {
+							$package='combo1';
+							myFunction($package);
+						}
+						if(isset($_POST['combo2'])) {
+							$package='combo2';
+							myFunction($package);
+						}
+						if(isset($_POST['combo3'])) {
+							$package='combo2';
+							myFunction($package);
+						}
 
-					<div class="col-md-4 pricing-box pricing-details">
-						<div class="pricing-border">
-							<div class="pricing-amount">
-								<h1><sup>৳</sup>499</h1>
-								<p>It's New</p>
+						function myFunction($packageType) {
+							if(isset($_SESSION['userEmail']))
+							{
+								echo '	<script> 
+											document.getElementById("package1").disabled = true;
+										</script>';
+								echo "Function called successfully ".$packageType. ' ';
+					
+							}
+							else
+							{
+								echo'<div class="alert alert-info" role="alert">
+										You have to Log in first!
+									</div>';
+								 header("Refresh:3; url=login.php");
+							}
+						}
+					?>
+					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+						<div class="col-md-4 pricing-box pricing-details">
+							<div class="pricing-border">
+								<div class="pricing-amount">
+									<h1><sup>৳</sup>499</h1>
+									<p>It's New</p>
+								</div>
+								<h2>Combo 1</h2>
+									<ul>
+										<li>Thai Clear/Corn Soup</li>
+										<li>Wonthon</li>
+										<li>Wedges</li>
+										<li>Pasta Salad</li>
+										<li>Steam Rice</li>
+										<li>Thai Rice</li>
+										<li>Chicken Massala</li>
+										<li>Thai Noodles</li>
+										<li>Ice Cream</li>
+									</ul>
+									<button type="submit" name="combo1" class="order-btn" id="package1">Order</a></button>	
+							</div>
+						</div>
+
+						<div class="col-md-4 pricing-details">
+							<div class="pricing-border">
+								<div class="pricing-amount">
+									<h1><sup>৳</sup>999</h1>
+									<p>It's Hot</p>
+								</div>
+								<h2>Combo 2</h2>
+
+									<ul>
+										<li>Chicken Pasta-1</li>
+										<li>Mexican Hot Pizza - 6 inc</li>
+										<li>Chicken/Beef Burger - 1pc</li>
+										<li>pasta Salad</li>
+										<li>Thai soup</li>
+										<li>Dosa</li>
+										<li>Special Apple Juice</li>
+										<li>Ice Cream</li>
+										<li>Pepsi/Coca Cola/Dew</li>
+									</ul>
+									<button type="submit" name="combo2" class="order-btn"id="package2">Order</a></button>
+							</div>
+						</div>
+
+						<div class="col-md-4 pricing-details">
+							<div class="pricing-border">
+								<div class="pricing-amount">
+									<h1><sup>৳</sup>1550</h1>
+									<p>It's Amazing</p>
+								</div>
+								<h2>Combo 3</h2>
+
+									<ul>
+										<li>T-Bone Steak</li>
+										<li>BBQ Half Chicken</li>
+										<li>Mexican Half Chicken</li>
+										<li>Rib eye Steak</li>
+										<li>Meat Supreme Pizza</li>
+										<li>Pepperoni Pizza</li>
+										<li>Red valvet Cake</li>
+										<li>Ice Cream</li>
+										<li>Pepsi/Coca Cola/Dew</li>
+									</ul>
+									<button type="submit" name="combo3" class="order-btn" id="package3">Order</a></button>
+
 								
 							</div>
-							<h2>Combo 1</h2>
-							<ul>
-								<li>Thai Clear/Corn Soup</li>
-								<li>Wonthon</li>
-								<li>Wedges</li>
-								<li>Pasta Salad</li>
-								<li>Steam Rice</li>
-								<li>Thai Rice</li>
-								<li>Chicken Massala</li>
-								<li>Thai Noodles</li>
-								<li>Ice Cream</li>
-							</ul>
-							<button type="button" class="order-btn">Order</a></button>
 						</div>
-					</div>
-
-					<div class="col-md-4 pricing-details">
-						<div class="pricing-border">
-							<div class="pricing-amount">
-								<h1><sup>৳</sup>999</h1>
-								<p>It's Hot</p>
-								
-							</div>
-							<h2>Combo 2</h2>
-							<ul>
-								<li>Chicken Pasta-1</li>
-								<li>Mexican Hot Pizza - 6 inc</li>
-								<li>Chicken/Beef Burger - 1pc</li>
-								<li>pasta Salad</li>
-								<li>Thai soup</li>
-								<li>Dosa</li>
-								<li>Special Apple Juice</li>
-								<li>Ice Cream</li>
-								<li>Pepsi/Coca Cola/Dew</li>
-							</ul>
-							<button type="button" class="order-btn">Order</a></button>
-						</div>
-					</div>
-
-					<div class="col-md-4 pricing-details">
-						<div class="pricing-border">
-							<div class="pricing-amount">
-								<h1><sup>৳</sup>1550</h1>
-								<p>It's Amazing</p>
-							</div>
-							<h2>Combo 3</h2>
-							<ul>
-								<li>T-Bone Steak</li>
-								<li>BBQ Half Chicken</li>
-								<li>Mexican Half Chicken</li>
-								<li>Rib eye Steak</li>
-								<li>Meat Supreme Pizza</li>
-								<li>Pepperoni Pizza</li>
-								<li>Red valvet Cake</li>
-								<li>Ice Cream</li>
-								<li>Pepsi/Coca Cola/Dew</li>
-							</ul>
-							<button type="button" class="order-btn">Order</a></button>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -122,7 +133,7 @@
 		<section class="footer">
 			<div class= "container">
 				<div class="row">
-					<p>© 2018 AUST CAFE. All Rights Reserved. Vallagena BD group</p>
+					<p>© 2018  CAFE. All Rights Reserved. Vallagena BD group</p>
 					
 				</div>
 				
@@ -130,6 +141,52 @@
 		</section>
 	  
   
+	<?php include "./footer.php";?>
 
-</body>
+	<?php
+			if(isset($_SESSION['userEmail']))
+			{
+				
+				
+				$userName=$_SESSION['userEmail'];
+				echo
+				"<script>
+					var btn= document.getElementById('logInBtn');
+					
+					var loginName='{$userName}';
+					console.log(loginName);
+					if(loginName!='')
+					{
+						btn.innerText=loginName;
+						btn.style.pointerEvents='none';
+						var logoutLink = document.createElement('a');
+						logoutLink.href = 'logout.php';
+						logoutLink.textContent = 'Log Out';
+
+						var logoutLi = document.createElement('li');
+						logoutLi.appendChild(logoutLink);
+
+						var myList = document.getElementById('myList');
+						myList.appendChild(logoutLi);
+						
+					}
+				</script>";
+			} 
+			else
+			{
+				echo '<div>sami </div>';
+			}
+
+
+			
+			
+		?>
+
+
+		<script>
+			setTimeout(function() {
+				$('.alert').fadeOut('fast');
+			},3000);
+		</script>
+	</body>
 </html>

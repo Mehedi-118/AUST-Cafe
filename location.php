@@ -13,41 +13,14 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 <body>
-	<section class="header">
-		  <nav class="navbar navbar-default">
-			  <div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-				  <a class="navbar-brand" href="#"><img src = "images/logo1.png" class="logo"></a>	
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				  <ul class="nav navbar-nav navbar-right">
-					<li><a href="index.php"> Home</a></li>
-					<li><a href="Restaurent.php">Restaurent</a></li>
-					<li><a href="Menu.php">Menu</a></li>	
-					<li><a href="join.php">Join Our Team </a></li>
-					<li><a href="location.php">Location</a></li>
-						 
-				  </ul>
-				</div><!-- /.navbar-collapse -->
-			  </div><!-- /.container-fluid -->
-			</nav>
-	 </section >
+<?php include "./header.php" ?>
 	  
   
    <div class="new">
 				<!--Header Left-->
 			 	<div class="row">
 			 		<div class="col-md-12">
-			 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14606.177378322622!2d90.4074373!3d23.7636229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd0c431067133c05a!2sAUST+Cafeteria!5e0!3m2!1sen!2sbd!4v1516626710255" width="1340" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+					 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.5134358215196!2d90.39578561119939!3d23.729063578596083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8e8ccf2afb5%3A0xfde166eb920114d4!2sInstitute%20of%20Information%20Technology!5e0!3m2!1sen!2sbd!4v1687158296866!5m2!1sen!2sbd" width="100%" height="600px" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 			 			
 			 		</div>
@@ -55,5 +28,6 @@
 
 	
   </div>
+  <?php include "./footer.php";?>
 </body>
 </html>

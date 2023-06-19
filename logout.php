@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -22,7 +23,22 @@
 	<body>
 		
 		
-		<?php include "./header.php" ?>
+		<?php 
+        
+            include "./header.php" ;
+            if(isset($_SESSION['userEmail']))
+            {
+
+                // remove all session variables
+                session_unset();
+                
+                // destroy the session
+                session_destroy();
+                
+
+            }
+        
+        ?>
 		<!--Banner Section start-->
 		<section class="banner-img">
 			<div class="container">
@@ -159,7 +175,7 @@
 				<div class="row">
 					<div class="col-md-5 col-md-offset-1">
 						<h1 class="text-center">Slow Day?</h1>
-						<p>By taking <span class="clr-text">coffe from AUST CAFE</span>  is your go-to neighborhood joint, any time, any day.<br> All it takes is a couple of minutes to send a personalized message to an SMS text list, and just like clockwork you'll connect to your entire customer base with<span class="clr-text"> special incentives.</span> With <span class="clr-text"> increased loyalty</span> through incentive, your business is going to get a whole l</p>
+						<p>By taking <span class="clr-text">coffe from  CAFE</span>  is your go-to neighborhood joint, any time, any day.<br> All it takes is a couple of minutes to send a personalized message to an SMS text list, and just like clockwork you'll connect to your entire customer base with<span class="clr-text"> special incentives.</span> With <span class="clr-text"> increased loyalty</span> through incentive, your business is going to get a whole l</p>
 					</div>
 					<div class="col-md-6">
 					<img src="images/c1.jpg">
@@ -249,3 +265,5 @@ Eight tiger shrimp sautéed in a lemon white wine butter sauce with capers, serv
 		?>
 	</body>
 </html>
+
+
