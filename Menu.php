@@ -39,10 +39,9 @@
 						function myFunction($packageType) {
 							if(isset($_SESSION['userEmail']))
 							{
-								echo '	<script> 
-											document.getElementById("package1").disabled = true;
-										</script>';
+								
 								echo "Function called successfully ".$packageType. ' ';
+								header("Location:cart.php");
 					
 							}
 							else
