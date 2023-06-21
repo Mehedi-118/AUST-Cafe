@@ -22,15 +22,7 @@
 	<?php include "./header.php"; ?>
 	<?php include "./dbConfig.php"; ?>
 
-	<?php
-
-		if ($_SERVER['REQUEST_METHOD'] === 'GET')
-		{
-			$pkgId=$_GET['packageId'];
-			$pkgName=$_GET['packageId'];
-
-		}
-	?>
+	
 	<section class="cart">
 		<?php
 			if (isset($_SESSION['userEmail'])) {
@@ -71,7 +63,18 @@
 
 
 
+		<?php
 
+			if ($_SERVER['REQUEST_METHOD'] === 'GET')
+			{
+				$pkgId=$_GET['packageId'];
+				$pkgName=$_GET['packageId'];
+				$sql = "INSERT INTO purchase (UserId, PackageId)
+       					VALUES ((SELECT Id FROM user WHERE Email = '{$_SESSION['userEmail']}'),$pkgId)";
+				$result = mysqli_query($mysqli, $sql);
+
+			}
+		?>
 
 			<?php
 
