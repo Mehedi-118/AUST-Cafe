@@ -63,7 +63,7 @@
 							{
 
 								echo "
-								<form method='GET' action='<?php echo htmlspecialchars($_SERVER[PHP_SELF]); ?>'>
+								<form method='GET' action='cart.php'>
 									<div class='col-md-4 pricing-details'>
 										<div class='pricing-border'>
 											<div class='pricing-amount'>

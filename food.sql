@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 12:26 PM
+-- Generation Time: Jun 21, 2023 at 02:35 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,9 +38,9 @@ CREATE TABLE `package` (
 --
 
 INSERT INTO `package` (`Id`, `Name`, `Price`) VALUES
-(2, 'Combo 1', 499),
-(3, 'Combo 2', 999),
-(4, 'Combo 3', 1599);
+(2, 'Combo1', 499),
+(3, 'Combo2', 999),
+(4, 'Combo3', 1599);
 
 -- --------------------------------------------------------
 
@@ -98,6 +98,15 @@ CREATE TABLE `purchase` (
   `PackageId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`Id`, `UserId`, `PackageId`) VALUES
+(1, 2, 2),
+(2, 2, 4),
+(3, 2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -108,14 +117,14 @@ CREATE TABLE `user` (
   `Id` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Pass` varchar(100) NOT NULL
+  `Password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`Id`, `Name`, `Email`, `Pass`) VALUES
+INSERT INTO `user` (`Id`, `Name`, `Email`, `Password`) VALUES
 (1, 'Admin', 'admin@cafe.com', 'admin123'),
 (2, 'Mehedi Hasan', 'm@gmail.com', '1');
 
@@ -170,7 +179,7 @@ ALTER TABLE `packagedetails`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
