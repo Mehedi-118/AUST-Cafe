@@ -167,10 +167,6 @@
 	</div>
 	
 	<?php include "./footer.php";?>
-	<script>
-		setTimeout(function() {
-			$('.alert').fadeOut('fast');
-		},2000);
-	</script>	</body>
+	</body>
 		
 </html>
