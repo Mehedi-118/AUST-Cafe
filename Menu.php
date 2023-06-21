@@ -23,25 +23,18 @@
 				<div class="row">
 					<h1 class="text-c"><span class="r-heading">Here our's Combo Pacages </span><span class="r-heading1">You Can try it</span> </h1>
 					<?php 
-						if(isset($_POST['combo1'])) {
-							$package='combo1';
-							myFunction($package);
+						if(isset($_GET['packageId']) && isset($_GET['packageName'])) {
+							$packageId=$_GET['packageId'];
+							$packageName=$_GET['packageName'];
+							myFunction($packageId,$packageName);
 						}
-						if(isset($_POST['combo2'])) {
-							$package='combo2';
-							myFunction($package);
-						}
-						if(isset($_POST['combo3'])) {
-							$package='combo2';
-							myFunction($package);
-						}
-
-						function myFunction($packageType) {
+						
+						function myFunction($pkgId,$pkgName) {
 							if(isset($_SESSION['userEmail']))
 							{
 								
-								echo "Function called successfully ".$packageType. ' ';
-								header("Location:cart.php");
+								echo "Function called successfully ".$_SESSION['userEmail']. ' ';
+								// header("Location:cart.php");
 					
 							}
 							else
@@ -53,8 +46,80 @@
 							}
 						}
 					?>
-					<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-						<div class="col-md-4 pricing-box pricing-details">
+					
+
+					<?php
+					include "./dbConfig.php";
+					$sql = "SELECT * from package inner join packagedetails on package.Id=packagedetails.PackageId order by PackageId asc;";
+					$result = mysqli_query($mysqli, $sql);
+					if (mysqli_num_rows($result) > 0) 
+					{
+						$prevPkgId=0;
+						while ($row = mysqli_fetch_assoc($result))
+						{
+							$PackageId=$row['PackageId'];
+							$prevPkgId=$PackageId;
+							if($PackageId===$prevPkgId)
+							{
+
+								echo "
+								<form method='GET' action='<?php echo htmlspecialchars($_SERVER[PHP_SELF]); ?>'>
+									<div class='col-md-4 pricing-details'>
+										<div class='pricing-border'>
+											<div class='pricing-amount'>
+												<h1><sup>৳</sup>{$row['Price']}</h1>
+												<p>It's New</p>
+											</div>
+											<input type='hidden' name='packageId' value='{$row['PackageId']}' />
+											<input type='hidden' name='packageName' value='{$row['Name']}' />
+											<h2>{$row['Name']}</h2>
+											<ul>";
+												while ($itemRow = mysqli_fetch_assoc($result)) 
+												{
+													if($itemRow['PackageId']===$PackageId)
+													{
+	
+														echo "<li>{$itemRow['ItemName']}</li>";
+													}
+													else
+													{
+														break;
+													}
+												}
+												echo 
+											"</ul>
+											<button type='submit' class='order-btn' id='package1'>Order</a></button>	
+										</div>
+									</div>
+								</form>";
+							}
+							else{
+								$prevPkgId=$PackageId;
+							}
+
+						}
+
+					}
+					else
+					{
+						echo "  <div class='col-md-4 pricing-details'>
+									<div class='pricing-border'>
+										<div class='pricing-amount'>
+											
+										</div>
+										
+										<h2> No Package Found</h2>
+										<ul>
+											
+										</ul>
+										<button type='submit' class='order-btn' id='package1' disable>---------</a></button>	
+									</div>
+								</div>";
+					}
+					
+					?>
+
+						<!-- <div class="col-md-4 pricing-box pricing-details">
 							<div class="pricing-border">
 								<div class="pricing-amount">
 									<h1><sup>৳</sup>499</h1>
@@ -122,8 +187,8 @@
 
 								
 							</div>
-						</div>
-					</form>
+						</div> -->
+					
 				</div>
 			</div>
 		</section>
