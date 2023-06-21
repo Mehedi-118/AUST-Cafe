@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Location</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lobster&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-<body>
+
 <?php include "./header.php" ?>
 	  
   
@@ -28,6 +14,55 @@
 
 	
   </div>
-  <?php include "./footer.php";?>
+  <?php include "./footer.php";
+  if (isset($_SESSION['userEmail'])) {
+
+
+$userName = $_SESSION['userEmail'];
+echo
+"<script>
+				var btn= document.getElementById('logInBtn');
+				
+				var loginName='{$userName}';
+				console.log(loginName);
+				if(loginName!='')
+				{
+					btn.innerText=loginName;
+					btn.style.pointerEvents='none';
+					var logoutLink = document.createElement('a');
+					logoutLink.href = 'logout.php';
+					logoutLink.textContent = 'Log Out';
+
+					var logoutLi = document.createElement('li');
+					logoutLi.appendChild(logoutLink);
+
+					var myList = document.getElementById('myList');
+					myList.appendChild(logoutLi);
+					
+				}
+			</script>";
+
+			if($userName=="admin@cafe.com")
+			{
+				
+				echo "<script>
+					
+					var addItem = document.createElement('a');
+					addItem.href = 'AddPackage.php';
+					addItem.textContent = 'Add new Package';
+
+					var addPkgLi = document.createElement('li');
+					addPkgLi.appendChild(addItem);
+
+					var myList = document.getElementById('myList');
+					myList.appendChild(addPkgLi);
+						
+					
+				</script>";
+			}
+} else {
+// echo '<div>sami </div>';
+}
+?>
 </body>
 </html>
