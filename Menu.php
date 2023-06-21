@@ -238,7 +238,7 @@
 			} 
 			else
 			{
-				echo '<div>sami </div>';
+				// echo '<div>sami </div>';
 			}
 
 

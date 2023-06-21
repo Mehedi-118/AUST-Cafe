@@ -19,12 +19,60 @@
 </head>
 
 <body>
-
-
 	<?php include "./header.php"; ?>
 	<?php include "./dbConfig.php"; ?>
+
+	<?php
+
+		if ($_SERVER['REQUEST_METHOD'] === 'GET')
+		{
+			$pkgId=$_GET['packageId'];
+			$pkgName=$_GET['packageId'];
+
+		}
+	?>
 	<section class="cart">
+		<?php
+			if (isset($_SESSION['userEmail'])) {
+
+
+				$userName = $_SESSION['userEmail'];
+				echo
+				"<script>
+							var btn= document.getElementById('logInBtn');
+							
+							var loginName='{$userName}';
+							console.log(loginName);
+							if(loginName!='')
+							{
+								btn.innerText=loginName;
+								btn.style.pointerEvents='none';
+								var logoutLink = document.createElement('a');
+								logoutLink.href = 'logout.php';
+								logoutLink.textContent = 'Log Out';
+
+								var logoutLi = document.createElement('li');
+								logoutLi.appendChild(logoutLink);
+
+								var myList = document.getElementById('myList');
+								myList.appendChild(logoutLi);
+								
+							}
+						</script>";
+			} else {
+				echo'<div class="alert alert-info" role="alert" style="margin-bottom:30%">
+						You have to Log in first!
+					 </div>';
+					header("Refresh:3; url=login.php");
+			}
+
+			?>
 		<div class="container">
+
+
+
+
+
 			<?php
 
 			$actvUser = '';
@@ -126,38 +174,7 @@
 
 	<?php include "./footer.php"; ?>
 
-	<?php
-	if (isset($_SESSION['userEmail'])) {
-
-
-		$userName = $_SESSION['userEmail'];
-		echo
-		"<script>
-					var btn= document.getElementById('logInBtn');
-					
-					var loginName='{$userName}';
-					console.log(loginName);
-					if(loginName!='')
-					{
-						btn.innerText=loginName;
-						btn.style.pointerEvents='none';
-						var logoutLink = document.createElement('a');
-						logoutLink.href = 'logout.php';
-						logoutLink.textContent = 'Log Out';
-
-						var logoutLi = document.createElement('li');
-						logoutLi.appendChild(logoutLink);
-
-						var myList = document.getElementById('myList');
-						myList.appendChild(logoutLi);
-						
-					}
-				</script>";
-	} else {
-		echo '<div>sami </div>';
-	}
-
-	?>
+	
 </body>
 
 </html>
