@@ -16,9 +16,10 @@
  -->
 
         <?php
-        include "./header.php" ;
-        include "./dbConfig.php";
-        if ($_SERVER['REQUEST_METHOD'] === 'GET')
+        include "./header.php" ;?>
+        <?php include "./dbConfig.php";?>
+
+        <?php if ($_SERVER['REQUEST_METHOD'] === 'GET')
         {
             if (isset($_SESSION['userEmail'])) 
             {
@@ -35,14 +36,33 @@
                     echo'<div class="alert alert-success" role="alert" style="margin-bottom:30%">
                             Item Added to cart Successfully!
                         </div>';
-                        header("Refresh:4; url=Menu.php");
+
+                      echo "
+                      
+                        <script>
+                            setTimeout(function(){
+                                window.location.href = 'Menu.php'; 
+                            },3000);// for  second redirection
+                        </script>
+                      
+                      ";  
+                        // header("Refresh:4; url=Menu.php");
                 }
             } 
             else {
                 echo '<div class="alert alert-info" role="alert" style="margin-bottom:30%">
                                 You have to Log in first!
                              </div>';
-                header("Refresh:3; url=login.php");
+                // header("Refresh:3; url=login.php");
+                echo "
+                      
+                        <script>
+                            setTimeout(function(){
+                                window.location.href = 'login.php'; 
+                            },3000);// for  second redirection
+                        </script>
+                      
+                      "; 
             }
             
 

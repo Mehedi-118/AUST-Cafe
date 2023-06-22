@@ -59,18 +59,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $stmt = "INSERT INTO `package`(`Name`,`Price`)VALUES('$pkgName','$pkgPrice');";
     if (mysqli_query($mysqli, $stmt))
     {
-        $pkgId = "SELECT Id FROM `package` WHERE name=\'$pkgName\';";
-        $pkgDetails1="INSERT INTO `packagedetails`(`PackageId`,`ItemName`)VALUES('$pkgId','$pkgItem1');";
+        $getPkgId = "SELECT Id FROM package WHERE name='{$pkgName}'";
+        $result = mysqli_query($mysqli, $getPkgId);
+        $pkgId=0;
+        if (mysqli_num_rows($result) > 0) 
+        {
+
+            while ($row = mysqli_fetch_assoc($result)) 
+            {
+                $pkgId=$row['Id'];
+            }
+        }
+        
+        
+        $pkgDetails1="INSERT INTO packagedetails(PackageId,ItemName)VALUES('$pkgId','$pkgItem1');";
         if (mysqli_query($mysqli, $pkgDetails1))
         {
-            
+            echo 'Item 1 created';
         }
         else{
             $flag=0;
         }
         if( $pkgItem2!='' ||  $pkgItem2!=null)
         {
-            $pkgDetails2="INSERT INTO `packagedetails`(`PackageId`,`ItemName`)VALUES('$pkgId','$pkgItem2');";
+            $pkgDetails2="INSERT INTO packagedetails(PackageId,ItemName)VALUES('$pkgId','$pkgItem2');";
             if (mysqli_query($mysqli, $pkgDetails2))
             {
                 
@@ -130,10 +142,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 					</div>';
         }
         else {
-            exit();
+            
+            echo '<div class="alert alert-danger" role="alert">
+                        Package Created 
+                    </div>';
+            header("Refresh:4; url=Registration.php");
         }
-        header("Location: Menu.php ");
-        exit();
 
     }
     else {

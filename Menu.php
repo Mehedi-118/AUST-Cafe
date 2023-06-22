@@ -19,7 +19,7 @@
 
 						echo "
 								<form method='GET' action='AddtoCart.php?>'>
-									<div class='col-md-4 pricing-details'>
+									<div class='col-md-4 pricing-details' style='margin-top:1%;'>
 										<div class='pricing-border'>
 											<div class='pricing-amount'>
 												<h1><sup>৳</sup>{$row['Price']}</h1>
@@ -29,16 +29,17 @@
 											<input type='hidden' name='packageName' value='{$row['Name']}' />
 											<h2>{$row['Name']}</h2>
 											<ul>";
-						while ($itemRow = mysqli_fetch_assoc($result)) {
-							if ($itemRow['PackageId'] === $PackageId) {
-
-								echo "<li>{$itemRow['ItemName']}</li>";
-							} else {
-								break;
-							}
-						}
-						echo
-						"</ul>
+												while ($itemRow = mysqli_fetch_assoc($result)) {
+													if ($itemRow['PackageId'] === $PackageId) {
+														
+														echo "<li>{$itemRow['ItemName']}</li>";
+													} else {
+														// echo 'hello';
+														break;
+													}
+												}
+												echo
+												"</ul>
 											<button type='submit' class='order-btn' id='package1'>Order</a></button>	
 										</div>
 									</div>
